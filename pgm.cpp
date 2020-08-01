@@ -2,11 +2,18 @@
 
 using namespace std;
 
-static char convert2morse(char chartoconvert) {
+string regmorsechars[46] = {"*-", ""};
+string morsechars[46] = {"\033[0;32m*\033[0;34m-", "\033[0;34m-\033[0;32m***", "\033[0;34m-\033[0;32m*\033[0;34m-\033[0;32m*", "\033[0;34m-\033[0;32m**", "\033[0;32m*", "\033[0;32m**\033[0;34m-\033[0;32m*", "\033[0;34m--\033[0;32m*", "\033[0;32m****", "\033[0;32m**", "\033[0;32m*\033[0;34m---", "\033[0;34m-\033[0;32m*\033[0;34m-", "\033[0;32m*\033[0;34m-\033[0;32m**", "\033[0;34m--", "\033[0;34m-\033[0;32m*", "\033[0;34m---", "\033[0;32m*\033[0;34m--\033[0;32m*", "\033[0;34m--\033[0;32m*\033[0;34m-", "\033[0;32m*\033[0;34m-\033[0;32m*", "\033[0;32m***", "\033[0;34m-", "\033[0;32m**\033[0;34m-", "\033[0;32m***\033[0;34m-", "\033[0;32m*\033[0;34m--", "\033[0;34m-\033[0;32m**\033[0;34m-", "\033[0;34m-\033[0;32m*\033[0;34m--", "\033[0;34m--\033[0;32m**", "\033[0;34m-----", "\033[0;32m*\033[0;34m----", "\033[0;32m**\033[0;34m---", "\033[0;32m***\033[0;34m--", "\033[0;32m****\033[0;34m-", "\033[0;32m*****", "\033[0;34m-\033[0;32m****", "\033[0;34m--\033[0;32m***", "\033[0;34m---\033[0;32m**", "\033[0;34m----\033[0;32m*", "\033[0;32m*\033[0;34m-\033[0;32m*\033[0;34m-\033[0;32m*\033[0;34m-", "\033[0;34m--\033[0;32m**\033[0;34m--", "\033[0;32m**\033[0;34m--\033[0;32m**", "\033[0;32m*\033[0;34m-\033[0;32m**\033[0;34m-\033[0;32m*", "\033[0;34m---\033[0;32m***", "\033[0;32m*\033[0;34m----*", "\033[0;34m-\033[0;32m****\033[0;34m-", "\033[0;34m-\033[0;32m**\033[0;34m-\033[0;32m*", "\033[0;34m-\033[0;32m*\033[0;34m--\033[0;32m*", "\033[0;34m-\033[0;32m*--\033[0;32m*\033[0;34m-"};
+string regchars[46] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ",", ".", "?", "\"", ":", "'", "-", "/", "(", ")"};
+
+static void convertfrommorse(char char2convert) {
+
+}
+
+static void convert2morse(char chartoconvert) {
 	using namespace std;
-	string morsechars[46] = {"*-", "-***", "-*-*", "-**", "*", "**-*", "--*", "****", "**", "*---", "-*-", "*-**", "--", "-*", "---", "*--*", "--*-", "*-*", "***", "-", "**-", "***-", "*--", "-**-", "-*--", "--**", "-----", "*----", "**---", "***--", "****-", "*****", "-****", "--***", "---**", "----*", "*-*-*-", "--**--", "**--**", "*-**-*", "---***", "*----*", "-****-", "-**-*", "-*--*", "-*--*-"};
 	if (chartoconvert == ' ') {
-		// do nothing
+		cout << "";
 	}
 	else if (chartoconvert == 'a' || chartoconvert == 'A') {
 		cout << morsechars[0];
@@ -147,20 +154,38 @@ static char convert2morse(char chartoconvert) {
 		cout << morsechars[45];
 	}
 	else {
-		cout << "invalid_character";
+		cout << "\033[0;31minvalid_character";
 	}
 	cout << " ";
-	return 0;
 }
 
 int main() {
 	system("clear");
-	cout << "Enter something you want to convert to morse code\n >> ";
-	string sentence;
-	cin >> sentence;
-	cout << endl;
-	for (char eachar: sentence) {
-		convert2morse(eachar);
+	string choice;
+	cout << "Do you want to convert to (1) or from (2) morse code (currently working in it. won't do anything)?\n >> ";
+	cin >> choice;
+	system("clear");
+	if (choice == "1") {
+		cout << "\033[38;2;120;120;120mEnter something you want to convert to morse code\n\033[38;2;255;119;0m >> ";
+		string sentence;
+		cin >> sentence;
+		for (char eachar : sentence) {
+			convert2morse(eachar);
+		}
+	}/*
+	else if (choice == "2") {
+		cout << "Enter the amount of characters your morse sentence will be (sorry.)\n >> ";
+		string chamnt;
+		cin >> chamnt;
+		int cvtchamnt;
+		char morsesent[] = cin ;
+		system("clear");
+		cout << "\033[38;2;120;120;120mEnter the morse code you want to convert.\n\033[38;2;255;119;0m >> ";
+		cin >> morsesent;
+		for (string f : morsesent) {
+
+		}
 	}
+	*/
 	return 0;
 }
